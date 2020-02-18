@@ -1,40 +1,28 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
-/*
-Checkboxes - проверить, что первый чекбокс unchecked,
-отметить первый чекбокс, проверить что он checked.
-Проверить, что второй чекбокс checked, сделать unheck, проверить, что он unchecked
- */
-
-public class Checkboxes {
+public class Checkboxes extends BeforeAfter {
     @Test
-    public void isUnchecked(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        WebDriver browser = new ChromeDriver();
-        browser.manage().window().maximize();
-        browser.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    public void isUnchecked() {
+
         browser.get("http://the-internet.herokuapp.com/checkboxes");
 
         //первый чекбокс
-        WebElement checkbox1 = browser.findElement(By.xpath("//input[@type='checkbox']"));
-        System.out.println(checkbox1.isSelected());
+        WebElement checkbox1 = browser.findElement(By.xpath("//*[@id='checkboxes']/input[1]"));
+        assertFalse(checkbox1.isSelected(), "чекбокс1 выбран, но не должен быть");
         checkbox1.click();
-        System.out.println(checkbox1.isSelected());
+        assertTrue(checkbox1.isSelected(), "чекбокс1 не выбран, но должен быть выбран");
 
-        //второй чекбокс не знаю, как найти
-        List<WebElement> checkboxes = browser.findElements(By.xpath("//input[@type='checkbox']"));
-
-
-        browser.quit();
-
-
+        //второй чекбокс
+        WebElement checkbox2 = browser.findElement(By.xpath("//*[@id='checkboxes']/input[2]"));
+        assertTrue(checkbox2.isSelected(), "чекбокс2 не выбран");
+        checkbox2.click();
+        assertFalse(checkbox2.isSelected(), "чекбокс2 почему-то выбран, но не должен");
 
     }
+
 }
