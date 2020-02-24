@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Page Title</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Customers</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>Natalia</td>
+        <td>Mironova</td>
+        <td>USA</td>
+    </tr>
+    <tr>
+        <td>Ivan</td>
+        <td>Ivanov</td>
+        <td>Belarus</td>
+    </tr>
+</table>
+
+<h2>Login Form</h2>
+<p>Please <strong>enter your name and last name</strong></p>
+
+<form action="/action_page.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    <input type="submit" value="Submit">
+    <input type="button" onclick="alert('Hello World!')" value="Click Me!">
+</form>
+
+<p></p>
+
+<form>
+    <label for="favcolor">Select your favorite color:</label>
+    <input type="color" id="favcolor" name="favcolor">
+</form>
+
+<p></p>
+
+<form>
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday">
+</form>
+
+<p></p>
+<h2>Please select the answer</h2>
+<form>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> I have a boat</label>
+</form>
+
+<p></p>
+
+<label for="cars"><strong>Choose a car:</strong></label>
+<p></p>
+
+<select id="cars">
+    <option value="volvo">WV</option>
+    <option value="saab">Mazda</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+</select>
+
+<p></p>
+<p>Profile img</p>
+<img src="https://content.onliner.by/user/avatar/60x60/263310?v=0.7310673371155025" alt="profile img" height="42"
+     width="42">
+
+<p></p>
+
+</body>
+</html>
